@@ -1,4 +1,6 @@
 import './App.css';
+import './scss/_stars.scss';
+import './scss/_animations.scss';
 import React from 'react';
 import CssBaseline from '@material-ui/core/CssBaseline';
 import Home from './components';
