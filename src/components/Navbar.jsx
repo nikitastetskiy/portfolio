@@ -1,9 +1,7 @@
-/* eslint-disable no-undef */
 import React, { useState } from 'react';
 import Navbar from 'react-bootstrap/Navbar';
 import Nav from 'react-bootstrap/Nav';
-import { mainBody, about } from '../editable-stuff/config';
-import pdf from '../editable-stuff/resume.pdf';
+import Pdf from '../editable-stuff/resume.pdf';
 
 const Navigation = React.forwardRef(() => {
   const [navbar, setNavbar] = useState(false);
@@ -34,8 +32,10 @@ const Navigation = React.forwardRef(() => {
       <Navbar.Collapse id="basic-navbar-nav">
         <Nav className="mr-auto">
           <Nav.Link
-            href="#"
-            onclick="window.open('pdf', '_blank', 'fullscreen=yes'); return false;"
+            className="nav-link lead"
+            href={Pdf}
+            target="_blank"
+            rel="noreferrer noopener"
           >
             Resume
           </Nav.Link>
