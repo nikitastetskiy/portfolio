@@ -6,15 +6,24 @@ import { mainBody, about } from '../editable-stuff/config';
 import pdf from '../editable-stuff/resume.pdf';
 
 const Navigation = React.forwardRef(() => {
-  const isTop = window.pageYOffset;
-  console.log(window.pageYOffset);
+  const [navbar, setNavbar] = useState(false);
   const navbarMenuRef = React.useRef();
+
+  const changeBackground = () => {
+    if (window.pageYOffset >= 80) {
+      setNavbar(true);
+    } else {
+      setNavbar(false);
+    }
+  };
+
+  window.addEventListener('scroll', changeBackground);
 
   return (
     <Navbar
       ref={navbarMenuRef}
       className={` fixed-top  ${
-        window.pageYOffset ? 'transparent' : 'navbar-white'
+        navbar ? 'navbar-white' : 'navbar-transparent'
       }`}
       expand="lg"
     >
