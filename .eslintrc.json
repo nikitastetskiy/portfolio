@@ -19,6 +19,11 @@
         "class-methods-use-this": "off",
         "react/jsx-filename-extension": [1, { "allow": "as-needed" }]
     },
+    "env": {
+        "browser": true,
+        "node": true,
+        "jasmine": true
+    },
     "parserOptions": {
         "ecmaVersion": 11
     }
