@@ -19,7 +19,7 @@ const MainBody = React.forwardRef(() => {
       }}
       className="title bg-transparent bgstyle text-light min-vh-100 d-flex align-content-center align-items-center flex-wrap m-0"
     >
-      {/* <StarfieldAnimation
+      <StarfieldAnimation
         lineWidth={0.0}
         depth={1000}
         style={{
@@ -27,12 +27,17 @@ const MainBody = React.forwardRef(() => {
           width: '100%',
           height: '100%',
         }}
-      /> */}
+      />
       <Container className="text-center text-mix">
         <h1 ref={Ref} className="display-1">
           {`${mainBody.firstName} ${mainBody.lastName}`}
         </h1>
         <div>
+          {/* 
+          
+          Using componentWillReceiveProps (deprecated)
+          
+          */}
           <div className="p-3">
             <Typist className="lead typist" cursor={{ show: false }}>
               {mainBody.firstMessage}
