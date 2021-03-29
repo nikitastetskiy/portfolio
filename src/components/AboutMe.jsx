@@ -4,20 +4,18 @@ import ProfilePicture from '../images/profile.jpeg';
 import Pdf from '../personal-info/resume.pdf';
 
 const AboutMe = () => (
-  <div id="aboutme" className="jumbotron jumbotron-fluid m-0">
-    <div className="container container-fluid">
-      <div className="row">
-        <div className="col-5 d-none d-lg-block align-self-center">
+  <div id="aboutme" className="jumbotron jumbotron-fluid m-0 bg-light">
+    <div className="container container-fluid display-4 pb-5 text-center">
+      <div className="row aboutme-text">
+        <div>
           <img
-            className="border-secondary rounded-circle center"
+            className="border-secondary rounded-circle center pic"
             src={ProfilePicture}
             alt="profilePicture"
-            width={about.imageSize}
-            height={about.imageSize}
           />
         </div>
 
-        <div className="col-lg-7">
+        <div className="container container-fluid">
           <h2 className="display-4 mb-5 text-center">{about.heading}</h2>
           <p className="lead text-center">{about.message}</p>
           {about.Pdf && (

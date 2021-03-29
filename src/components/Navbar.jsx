@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import Navbar from 'react-bootstrap/Navbar';
 import Nav from 'react-bootstrap/Nav';
-import Pdf from '../editable-stuff/resume.pdf';
+import Pdf from '../personal-info/resume.pdf';
 
 const Navigation = React.forwardRef(() => {
   const [navbar, setNavbar] = useState(false);
