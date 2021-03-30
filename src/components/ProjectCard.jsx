@@ -47,16 +47,9 @@ const ProjectCard = ({ value }) => {
 
 const CardButtons = ({ svn_url }) => (
   <>
-    <a
-      href={`${svn_url}/archive/master.zip`}
-      className="btn btn-outline-secondary mr-3"
-    >
-      <i className="fab fa-github" />
-      &nbsp; Clone Project
-    </a>
     <a href={svn_url} target=" _blank" className="btn btn-outline-secondary">
       <i className="fab fa-github" />
-      &nbsp;Repo
+      &nbsp;See on Github
     </a>
   </>
 );
