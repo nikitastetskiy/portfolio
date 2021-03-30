@@ -18,20 +18,18 @@ const AboutMe = () => (
         <div className="container container-fluid">
           <h2 className="display-4 mb-5 text-center">{about.heading}</h2>
           <p className="lead text-center">{about.message}</p>
-          {about.Pdf && (
-            <p className="lead text-center">
-              <a
-                className="btn btn-outline-dark btn-lg"
-                href={Pdf}
-                target="_blank"
-                rel="noreferrer noopener"
-                role="button"
-                aria-label="Resume/CV"
-              >
-                Resume
-              </a>
-            </p>
-          )}
+          <p className="lead text-center">
+            <a
+              className="btn btn-outline-dark btn-lg"
+              href={Pdf}
+              target="_blank"
+              rel="noreferrer noopener"
+              role="button"
+              aria-label="Resume/CV"
+            >
+              Resume
+            </a>
+          </p>
         </div>
       </div>
     </div>
