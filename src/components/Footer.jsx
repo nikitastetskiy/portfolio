@@ -17,13 +17,14 @@ const Footer = () => {
         </p>
         <p>
           <small className="text-muted">
-            Project code is open source. Feel free to fork it on
+            Project code is open source. Feel free to fork it on&nbsp;
             <a
-              rel="noopener"
+              target="_blank"
+              rel="noreferrer noopener"
               href="https://github.com/nikitastetskiy"
               aria-label="My GitHub"
             >
-              &nbsp;Github
+              Github
             </a>
             .
           </small>
