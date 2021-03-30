@@ -22,7 +22,7 @@ const about = {
   heading: 'About Me',
   message:
     'My name is Nikita Stetskiy. I’m an IT engineer student from the University of Granada. In my spare time I enjoy improving my editing skills and ' +
-    'being engaging with projects that require me to work outside my comfort set, as continuing to learn new languages and development techniques. Improving myself to become dedicated and efficient ' +
+    "being engaging with projects that require me to work outside my comfort set, as continuing to learn new languages and development techniques. I'm improving myself to become dedicated and efficient " +
     'full stack developer expert in application layers, presentation layers, databases, data structures and my relationships.',
 };
 
