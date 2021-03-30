@@ -42,11 +42,11 @@ const Navigation = React.forwardRef(() => {
           <Nav.Link className="nav-link lead" href="/#aboutme">
             About
           </Nav.Link>
-          <Nav.Link className="nav-link lead" href="/#projects">
-            Projects
-          </Nav.Link>
           <Nav.Link className="nav-link lead" href="/#skills">
             Skills
+          </Nav.Link>
+          <Nav.Link className="nav-link lead" href="/#projects">
+            Projects
           </Nav.Link>
         </Nav>
       </Navbar.Collapse>
