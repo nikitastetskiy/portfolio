@@ -4,7 +4,7 @@ import Typed from 'react-typed';
 import Container from 'react-bootstrap/Container';
 import Jumbotron from 'react-bootstrap/Jumbotron';
 import StarfieldAnimation from 'react-starfield-animation';
-import { mainBody } from '../personal-info/config';
+import { mainBody, getInTouch } from '../personal-info/config';
 
 const MainBody = React.forwardRef(() => {
   const Ref = React.useRef();
@@ -60,7 +60,7 @@ const MainBody = React.forwardRef(() => {
         <div className="header-icons">
           <a
             aria-label="Send email"
-            href="mailto:nikin929@gmail.com"
+            href={`mailto:${getInTouch.email}`}
             rel="noreferrer noopener"
           >
             <i className="icon fa fa-envelope" />
