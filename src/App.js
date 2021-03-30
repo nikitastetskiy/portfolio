@@ -1,18 +1,26 @@
-import './App.css';
-import './scss/_stars.scss';
-import './scss/_animations.scss';
+/* eslint-disable react/jsx-filename-extension */
 import React from 'react';
-import CssBaseline from '@material-ui/core/CssBaseline';
-import Home from './components';
+import { BrowserRouter } from 'react-router-dom';
+import Navbar from './components/Navbar';
+import MainBody from './components/MainBody';
+import AboutMe from './components/AboutMe';
+import Project from './components/Project';
+import Skills from './components/Skills';
+import Footer from './components/Footer';
+import './scss/custom.scss';
+import './App.css';
 
-function App() {
+const App = () => {
   return (
-    <>
-      <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-      <CssBaseline />
-      <Home />
-    </>
+    <BrowserRouter basename={`${process.env.PUBLIC_URL}/`}>
+      <Navbar />
+      <MainBody />
+      <AboutMe />
+      <Skills />
+      <Project />
+      <Footer />
+    </BrowserRouter>
   );
-}
+};
 
 export default App;
