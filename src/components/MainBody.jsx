@@ -15,7 +15,7 @@ const MainBody = React.forwardRef(() => {
       id="home"
       style={{
         background: `linear-gradient(136deg,${mainBody.gradientColors})`,
-        backgroundSize: '1000% 1000%',
+        backgroundSize: '1200% 1200%',
       }}
       className="title bg-transparent bgstyle text-light min-vh-100 d-flex align-content-center align-items-center flex-wrap m-0"
     >
