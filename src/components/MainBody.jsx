@@ -3,7 +3,7 @@ import Typist from 'react-typist';
 import Typed from 'react-typed';
 import Container from 'react-bootstrap/Container';
 import Jumbotron from 'react-bootstrap/Jumbotron';
-import StarfieldAnimation from 'react-starfield-animation';
+import StarfieldAnimation from '../starfield/index';
 import { mainBody, getInTouch } from '../personal-info/config';
 
 const MainBody = React.forwardRef(() => {
@@ -20,8 +20,10 @@ const MainBody = React.forwardRef(() => {
       className="title bg-transparent bgstyle text-light min-vh-100 d-flex align-content-center align-items-center flex-wrap m-0"
     >
       <StarfieldAnimation
+        className="text-mix"
         lineWidth={0.0}
         depth={1000}
+        numParticles={555}
         style={{
           position: 'absolute',
           width: '100%',
