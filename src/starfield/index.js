@@ -1,5 +1,3 @@
-/* eslint-disable */
-/* eslint-disable prettier/prettier */
 /**
  * @class StarfieldAnimation
  */
