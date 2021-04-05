@@ -20,7 +20,7 @@ const MainBody = React.forwardRef(() => {
       className="title bg-transparent bgstyle text-light min-vh-100 d-flex align-content-center align-items-center flex-wrap m-0"
     >
       <StarfieldAnimation
-        className="text-mix"
+        className="text-mix-star"
         lineWidth={0.0}
         depth={1000}
         numParticles={350}
