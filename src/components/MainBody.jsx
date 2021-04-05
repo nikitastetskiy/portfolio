@@ -23,7 +23,7 @@ const MainBody = React.forwardRef(() => {
         className="text-mix"
         lineWidth={0.0}
         depth={1000}
-        numParticles={555}
+        numParticles={350}
         style={{
           position: 'absolute',
           width: '100%',
