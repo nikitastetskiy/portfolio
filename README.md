@@ -103,7 +103,7 @@ In the project directory, you can run these available scripts:
 
 <dl>
     <dd> <blockquote>
-    <p>"https://github.com/&lt;your-username>/&lt;your-username>.github.io.git"</p>
+    <p>github.com/&lt;your-username>/&lt;your-username>.github.io.git</p>
     </blockquote> </dd>
 </dl>
 
@@ -133,7 +133,7 @@ In the project directory, you can run these available scripts:
 Large amount of help was from the following repositories: 
 
 - [Home](https://github.com/hashirshoaeb/home) of [Hashir Shoaib](https://github.com/hashirshoaeb).
-- [Starfield Animation](https://github.com/hashirshoaeb) of [Travis Fischer](https://github.com/transitive-bullshit).
+- [Starfield Animation](https://github.com/transitive-bullshit/react-starfield-animation) of [Travis Fischer](https://github.com/transitive-bullshit).
 - [Particle](https://github.com/nrandecker/particle) of [Nathan Randecker](https://github.com/nrandecker).
 - [Typist](https://github.com/jstejada/react-typist) of [Juan](https://github.com/jstejada).
 - [Typed](https://github.com/mattboldt/typed.js) of [Matt Boldt](https://github.com/mattboldt).
