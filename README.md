@@ -2,14 +2,6 @@
 
 > This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
-<p align="center">
-    <table>
-        <tr>
-            <img src="docs/animado.gif" alt="" />
-        </tr>
-    </table>
-</p>
-
 ## Description
 
 This portfolio is based on a static website, it has been created with React and Boostrap. There are parts of the code like Animations and Github Projects that are not mine (they will be referenced below).
