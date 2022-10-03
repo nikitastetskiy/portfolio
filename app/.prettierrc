@@ -1,0 +1,7 @@
+{
+    "singleQuote": true,
+    "tabWidth": 2,
+    "prettier.tabWidth": 2,
+    "prettier.useTabs": true,
+    "prettier/prettier": ["error", {"singleQuote": true, "parser": "flow"}]
+}
