@@ -20,7 +20,8 @@ function Skills() {
             <div className="tech">
               <i className="icons devicon-java-plain" />
               <i className="icons devicon-ruby-plain" />
-              <i className="icons devicon-html5-plain-wordmark" />
+              <i className="icons devicon-php-plain" />
+              
             </div>
           </div>
 
@@ -32,7 +33,7 @@ function Skills() {
               <i className="icons devicon-amazonwebservices-original" />
             </div>
             <div className="tech">
-              <i className="icons devicon-react-original" />
+              <i className="icons devicon-html5-plain-wordmark" />
               <i className="icons devicon-flask-original" />
               <i className="icons devicon-apache-line-wordmark" />
             </div>
@@ -46,7 +47,7 @@ function Skills() {
             </div>
             <div className="tech">
               <i className="icons devicon-postgresql-plain" />
-              <i className="icons devicon-php-plain" />
+              <i className="icons devicon-react-original" />
               <i className="icons devicon-terraform-plain" />
             </div>
           </div>
