@@ -21,7 +21,6 @@ function Skills() {
               <i className="icons devicon-java-plain" />
               <i className="icons devicon-ruby-plain" />
               <i className="icons devicon-php-plain" />
-              
             </div>
           </div>
 
