@@ -73,7 +73,7 @@ const MainBody = React.forwardRef(() => {
             rel="noreferrer noopener"
             href="https://www.linkedin.com/in/nikitastetskiy"
           >
-            <i className="icon fab fa-linkedin" aria-hidden="true" />
+            <i className="icon fab fa-linkedin-in" aria-hidden="true" />
           </a>
           <a
             aria-label="My Github"

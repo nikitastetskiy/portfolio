@@ -1,13 +1,9 @@
-FROM node:15
+FROM node:14-alpine
 WORKDIR /app
 # COPY  ./app/. ./
-COPY ./app/package*.json ./
-RUN apt update && apt install --no-install-recommends -y python make g++\
-    && rm -rf /var/lib/apt/lists/*
+COPY ./app/package.json ./
 
 RUN npm install
-RUN npm install -g npm@8.19.1 && npm update chokidar
-RUN npm rebuild node-sass
 
 COPY ./app/. ./
 

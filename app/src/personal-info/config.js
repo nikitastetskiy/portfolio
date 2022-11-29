@@ -9,11 +9,7 @@ const mainBody = {
   firstName: 'Nikita',
   lastName: 'Stetskiy',
   firstMessage: ' The secret of getting ahead is getting started. ',
-  secondMessage: [
-    'Computer Science Student',
-    'IT Engineer',
-    'Full Stack Developer',
-  ],
+  secondMessage: ['IT Engineer', 'Cloud Architect', 'Full Stack Developer'],
 };
 
 // ABOUT SECTION
@@ -21,10 +17,10 @@ const mainBody = {
 const about = {
   heading: 'About Me',
   message:
-    'My name is Nikita Stetskiy. I’m an IT engineer student from the University of Granada. In my spare time I enjoy improving my editing skills ' +
-    'and being engaging with projects that require me to work out of my comfort set, thus I am continually learning new languages and development ' +
-    "techniques. I'm improving myself to become a dedicated and efficient full stack developer. Establishing my strengths in application layers, " +
-    'presentation layers, databases and data structures.',
+    'My name is Nikita Stetskiy. I’m an IT engineer from the University of Granada. At the moment I am specializing in DevOps, ' +
+    'in order to master automation and custom application development. Furthermore, I am aiming to become a dedicated and efficient ' +
+    'full stack developer. At the same time my goal is to progress and focus my strengths on design and development with the intention ' +
+    'of being capable to manage robust and scalable cloud architecture solutions.',
 };
 
 // PROJECTS SECTION

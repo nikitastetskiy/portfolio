@@ -158,13 +158,17 @@ code {
 .tech {
   margin: 5px;
   .icons{
-    width: 80px;
-    height: 80px;
     padding: 9px;
     font-size: 57px;
-    border-radius: 80%;
+    border-radius: 100%;
     border: 2px solid;
     margin: 5px;
+  }
+  .devicon-javascript-plain {
+    position: relative;
+    top: -3px;
+    padding: 13px;
+    font-size: 49px;
   }
 }
 

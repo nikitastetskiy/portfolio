@@ -13,8 +13,8 @@ function Skills() {
           <div>
             <div className="tech">
               <h2 className="pb-3">Code</h2>
-              <i className="icons fab fa-python" />
-              <i className="icons fab fa-js-square" />
+              <i className="icons devicon-python-plain" />
+              <i className="icons devicon-javascript-plain" />
               <i className="icons devicon-cplusplus-line-wordmark" />
             </div>
             <div className="tech">
@@ -27,27 +27,27 @@ function Skills() {
           <div>
             <div className="tech">
               <h2 className="pb-3">Web</h2>
-              <i className="icons devicon-apache-line-wordmark" />
-              <i className="icons devicon-django-line-wordmark" />
-              <i className="icons fab devicon-nginx-original-wordmark" />
+              <i className="icons devicon-heroku-original" />
+              <i className="icons devicon-googlecloud-plain" />
+              <i className="icons devicon-amazonwebservices-original" />
             </div>
             <div className="tech">
-              <i className="icons devicon-bootstrap-plain-wordmark" />
+              <i className="icons devicon-react-original" />
               <i className="icons devicon-flask-original" />
-              <i className="icons devicon-heroku-original" />
+              <i className="icons devicon-apache-line-wordmark" />
             </div>
           </div>
           <div>
             <div className="tech">
               <h2 className="pb-3">Tools</h2>
               <i className="icons devicon-docker-plain" />
-              <i className="icons fab fa-git" />
-              <i className="icons fab devicon-mongodb-plain-wordmark" />
+              <i className="icons devicon-github-original" />
+              <i className="icons devicon-mongodb-plain-wordmark" />
             </div>
             <div className="tech">
               <i className="icons devicon-postgresql-plain" />
-              <i className="icons devicon-npm-original-wordmark" />
-              <i className="icons devicon-express-original-wordmark" />
+              <i className="icons devicon-php-plain" />
+              <i className="icons devicon-terraform-plain" />
             </div>
           </div>
         </div>

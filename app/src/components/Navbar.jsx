@@ -1,7 +1,6 @@
 import React, { useState } from 'react';
 import Navbar from 'react-bootstrap/Navbar';
 import Nav from 'react-bootstrap/Nav';
-import Pdf from '../personal-info/resume.pdf';
 
 const Navigation = React.forwardRef(() => {
   const [navbar, setNavbar] = useState(false);
@@ -33,7 +32,7 @@ const Navigation = React.forwardRef(() => {
         <Nav className="mr-auto">
           <Nav.Link
             className="nav-link lead"
-            href={Pdf}
+            href="/resume.pdf"
             target="_blank"
             rel="noreferrer noopener"
           >

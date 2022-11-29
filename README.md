@@ -2,6 +2,15 @@
 
 > This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
+## Important
+
+This project uses deprecated dependencies that are no longer updated. You need Node 14 to install the project or you can use Docker:
+
+    docker compose build
+
+    docker run --publish 8000:3000 portfolio-web
+
+
 ## Description
 
 This portfolio is based on a static website, it has been created with React and Boostrap. There are parts of the code like Animations and Github Projects that are not mine (they will be referenced below).

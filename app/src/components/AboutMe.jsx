@@ -1,7 +1,6 @@
 import React from 'react';
 import { about } from '../personal-info/config';
-import ProfilePicture from '../images/profile.jpeg';
-import Pdf from '../personal-info/resume.pdf';
+import ProfilePicture from '../images/profile.png';
 
 const AboutMe = () => (
   <div id="aboutme" className="jumbotron jumbotron-fluid m-0 bg-light">
@@ -12,6 +11,7 @@ const AboutMe = () => (
             className="border-secondary rounded-circle center pic"
             src={ProfilePicture}
             alt="profilePicture"
+            width="500px"
           />
         </div>
 
@@ -21,7 +21,7 @@ const AboutMe = () => (
           <p className="lead text-center">
             <a
               className="btn btn-outline-dark btn-lg"
-              href={Pdf}
+              href="/resume.pdf"
               target="_blank"
               rel="noreferrer noopener"
               role="button"

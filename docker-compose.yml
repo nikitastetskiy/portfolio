@@ -5,6 +5,5 @@ services:
     build:
       dockerfile: ./compose/Dockerfile
       context: .
-    # container_name: nikita_app
     ports:
       - "8000:3000"
