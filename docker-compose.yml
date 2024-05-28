@@ -3,7 +3,12 @@ version: "3.8"
 services:
   web:
     build:
-      dockerfile: ./compose/Dockerfile
       context: .
+      dockerfile: ./compose/Dockerfile
+    volumes:
+      - ./app:/app
+      - /app/node_modules
     ports:
       - "8000:3000"
+    environment:
+      - NODE_ENV=development

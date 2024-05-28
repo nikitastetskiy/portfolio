@@ -155,23 +155,6 @@ code {
   }
 }
 
-.tech {
-  margin: 5px;
-  .icons{
-    padding: 9px;
-    font-size: 57px;
-    border-radius: 100%;
-    border: 2px solid;
-    margin: 5px;
-  }
-  .devicon-javascript-plain {
-    position: relative;
-    top: -3px;
-    padding: 13px;
-    font-size: 49px;
-  }
-}
-
 .aboutme-text {
   text-align: center;
   font-size: 60px;
@@ -194,4 +177,35 @@ code {
 
 #skills {
   background-color: #FDFDFD;
+}
+
+.tech {
+  margin: 5px;
+}
+
+.icons {
+  padding: 9px;
+  font-size: 77px;
+  border-radius: 100%;
+  border: 2px solid;
+  margin: 10px;
+  width: 80px; /* Ajusta el tamaño según sea necesario */
+  height: 80%; /* Ajusta el tamaño según sea necesario */
+  box-sizing: border-box; /* Asegura que el padding y el border se incluyan en el tamaño total */
+  display: inline-block;
+}
+
+.icons img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  filter: grayscale(100%);
+  fill: #4a4a4a;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.icons img:hover {
+  filter: none; /* Elimina el filtro de gris al pasar el ratón */
 }

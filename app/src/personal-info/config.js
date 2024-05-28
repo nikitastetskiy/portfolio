@@ -17,10 +17,7 @@ const mainBody = {
 const about = {
   heading: 'About Me',
   message:
-    'My name is Nikita Stetskiy. I am an IT engineer from the University of Granada. At the moment I am specializing in DevOps, ' +
-    'in order to master automation and custom application development. Furthermore, I am aiming to become a dedicated and efficient ' +
-    'full stack developer. At the same time my goal is to progress and focus my strengths on design and development with the intention ' +
-    'of being capable to manage robust and scalable cloud architecture solutions.',
+    'My name is Nikita Stetskiy. I graduated from the University of Granada (UGR) in 2022 with a degree in Computer Engineering, specializing in IT. Currently, I am developing my career as a Cloud Architect at IBM. In this role, I leverage my expertise to design and manage robust and scalable cloud architecture solutions. Additionally, I aim to focus on design, networking, automation, and development, with the intention of understanding all layers of a solution. Outside of my professional career, I enjoy image and video editing, which allows me to express my creativity in different ways.',
 };
 
 // PROJECTS SECTION

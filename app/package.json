@@ -16,7 +16,7 @@
     "axios": "^0.21.1",
     "bootstrap": "^4.6.0",
     "gh-pages": "^3.1.0",
-    "node-sass": "^5.0.0",
+    "sass": "^1.32.8",
     "prop-types": "^15.7.2",
     "raf": "^3.4.1",
     "react": "^17.0.2",
@@ -38,7 +38,8 @@
     "test": "react-scripts test",
     "eject": "react-scripts eject",
     "custom-deploy": "node pages.js",
-    "lint": "eslint --ext .js"
+    "lint": "eslint --ext .js",
+    "build-css": "sass src/styles:public/styles"
   },
   "eslintConfig": {
     "extends": [
