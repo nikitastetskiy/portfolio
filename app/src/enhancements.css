@@ -312,10 +312,12 @@ button:focus-visible {
   }
 }
 
-/* Neutral accents keep the emphasis on content and the original grayscale layout. */
+/* Light coffee accents add warmth to the original grayscale layout. */
 :root {
-  --portfolio-accent-surface: #f1f2f3;
-  --portfolio-ink: #2f343a;
+  --portfolio-accent-surface: #eee5da;
+  --portfolio-accent-border: #d7c5b2;
+  --portfolio-accent: #b49374;
+  --portfolio-ink: #594638;
 }
 .language-link {
   color: #666 !important;
@@ -324,7 +326,7 @@ button:focus-visible {
 .skill-tags .tag-highlight {
   background: var(--portfolio-accent-surface);
   color: var(--portfolio-ink);
-  border-color: #d5d8db;
+  border-color: var(--portfolio-accent-border);
   font-weight: 500;
 }
 .project-card {
@@ -346,16 +348,16 @@ button:focus-visible {
   position: relative;
   display: grid;
   place-items: center;
-  background-color: #f0f1f2;
-  background-image: radial-gradient(#cdd0d3 0.9px, transparent 0.9px);
+  background-color: #f4f1ed;
+  background-image: radial-gradient(#d9d1c7 0.9px, transparent 0.9px);
   background-size: 14px 14px;
   border-bottom: 1px solid #ddd;
 }
 .security .project-visual {
-  background-color: #eceef0;
+  background-color: #f0ede8;
 }
 .architecture .project-visual {
-  background-color: #f1f1f1;
+  background-color: #f5f2ed;
 }
 .project-diagram {
   display: flex;
@@ -370,9 +372,9 @@ button:focus-visible {
     monospace;
   min-width: 72px;
   padding: 12px 13px;
-  border: 1px solid #a7adb3;
+  border: 1px solid var(--portfolio-accent-border);
   border-radius: 3px;
-  background: #fafafa;
+  background: #fdfbf8;
   text-align: center;
 }
 .diagram-node + .diagram-node {
@@ -382,7 +384,7 @@ button:focus-visible {
   position: absolute;
   content: '';
   width: 30px;
-  border-top: 1px solid #8a929a;
+  border-top: 1px solid var(--portfolio-accent);
   top: 50%;
   right: 100%;
 }
@@ -425,7 +427,7 @@ button:focus-visible {
   left: 0;
   height: 2px;
   width: 36px;
-  background: #a7adb3;
+  background: var(--portfolio-accent);
 }
 .qualification-entry + .qualification-entry {
   padding-top: 1.5rem;
