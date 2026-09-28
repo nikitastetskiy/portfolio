@@ -250,8 +250,11 @@ function About({ lang }) {
                 {p}
               </p>
             ))}
-            <p className="lead mt-4 mb-0">
-              <a className="btn btn-outline-dark btn-lg" href={pagePath(lang, true)}>
+            <p className="about-actions lead mt-4 mb-0">
+              <ExternalLink className="btn btn-outline-dark btn-lg" href={resumePdf}>
+                {t.resume}
+              </ExternalLink>
+              <a href={pagePath(lang, true)}>
                 {t.resumeWeb}
               </a>
             </p>
