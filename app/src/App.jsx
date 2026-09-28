@@ -189,11 +189,7 @@ function Hero({ lang }) {
     <section
       id="home"
       aria-labelledby="hero-name"
-      style={{
-        background: 'linear-gradient(136deg,#FFFFFF, #3D3D3D, #000000)',
-        backgroundSize: '1200% 1200%',
-      }}
-      className="jumbotron jumbotron-fluid title bg-transparent bgstyle text-light min-vh-100 d-flex align-content-center align-items-center flex-wrap m-0"
+      className="jumbotron jumbotron-fluid title text-light min-vh-100 d-flex align-content-center align-items-center flex-wrap m-0"
     >
       <Starfield />
       <div className="container text-center text-mix">

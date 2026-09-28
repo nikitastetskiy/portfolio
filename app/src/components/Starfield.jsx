@@ -19,22 +19,9 @@ export default function Starfield() {
       context.clearRect(0, 0, bounds.width, bounds.height);
       context.save();
       context.translate(bounds.width / 2, bounds.height / 2);
-      context.lineCap = 'round';
       for (const particle of particles) {
         if (seconds) particle.update(seconds);
         const { sx, sy, radius, alpha, color } = particle;
-        const dx = sx - particle.osx;
-        const dy = sy - particle.osy;
-        const distance = Math.hypot(dx, dy);
-        if (distance > 0.4) {
-          const length = Math.min(1, 4 / distance);
-          context.beginPath();
-          context.moveTo(sx - dx * length, sy - dy * length);
-          context.lineTo(sx, sy);
-          context.lineWidth = radius * 0.7;
-          context.strokeStyle = `rgba(${color},${alpha * 0.32})`;
-          context.stroke();
-        }
         if (radius > 0.85) {
           context.beginPath();
           context.arc(sx, sy, radius * 2.75, 0, Math.PI * 2);

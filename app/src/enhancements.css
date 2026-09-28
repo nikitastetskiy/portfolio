@@ -4,11 +4,14 @@ html {
 }
 #home {
   position: relative;
+  isolation: isolate;
   overflow: hidden;
   padding-top: 90px;
+  background-color: #0b0c0f;
 }
 .starfield {
   position: absolute;
+  z-index: 1;
   inset: 0;
   width: 100%;
   height: 100%;
@@ -16,6 +19,7 @@ html {
 }
 #home .container {
   position: relative;
+  z-index: 2;
 }
 .about-layout .pic {
   width: 100%;
@@ -474,12 +478,17 @@ button:focus-visible {
   }
 }
 
-/* Keep the original animated gradient while retaining readable text at every phase. */
+/* A narrow tonal range and fine static grain soften gradient banding. */
 #home:before {
   content: '';
   position: absolute;
+  z-index: 0;
   inset: 0;
-  background: rgba(0, 0, 0, 0.55);
+  pointer-events: none;
+  background-image:
+    url('./images/sky-grain.svg'),
+    radial-gradient(ellipse at 50% 25%, #24262b 0%, #141519 60%, #090a0d 100%);
+  background-size: 128px 128px, 100% 100%;
 }
 #home .text-mix {
   mix-blend-mode: normal;

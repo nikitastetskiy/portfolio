@@ -27,19 +27,12 @@ export default class Particle {
       : tint < 0.96 ? '255,146,137'
       : '255,215,174';
     this.project();
-    // A new star never draws a trail from the center or its previous location.
-    this.osx = this.sx;
-    this.osy = this.sy;
   }
 
   project() {
     const scale = this.bounds.depth / this.z;
     this.sx = this.x * scale;
     this.sy = this.y * scale;
-    // A fixed exposure keeps trails the same length at different refresh rates.
-    const previousScale = this.bounds.depth / (this.z + this.speed / 60);
-    this.osx = this.x * previousScale;
-    this.osy = this.y * previousScale;
     this.radius = Math.min(1.65, this.size * Math.sqrt(scale));
     const fade = Math.max(0, Math.min(1, this.age / 1.2, (this.z - this.bounds.near) / 180));
     this.alpha = this.brightness * fade * (0.88 + 0.12 * Math.sin(this.phase));
