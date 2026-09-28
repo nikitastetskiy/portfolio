@@ -1,6 +1,6 @@
 # Nikita Stetskiy's portfolio
 
-[Live site](https://nikitastetskiy.github.io/) · [Español](https://nikitastetskiy.github.io/es/) · [Résumé](https://nikitastetskiy.github.io/resume/)
+[Live site](https://nikitastetskiy.github.io/) · [Español](https://nikitastetskiy.github.io/es/) · [CV (PDF)](https://nikitastetskiy.github.io/resume.pdf) · [Online résumé](https://nikitastetskiy.github.io/resume/)
 
 A bilingual portfolio covering customer success engineering at HashiCorp, cloud architecture, and public technical projects. React provides navigation and the rotating hero text. Vite builds the site, and a build step renders every page to HTML so the content works without JavaScript or GitHub API requests.
 
@@ -28,7 +28,8 @@ Stop the services with `docker compose --profile dev down`.
 
 - Edit English and Spanish copy, employment dates, skills, education and project links in [`app/src/personal-info/config.js`](app/src/personal-info/config.js).
 - Page components are in [`app/src/App.jsx`](app/src/App.jsx); the original styles remain in [`app/src/scss`](app/src/scss) and [`app/src/App.css`](app/src/App.css). Selected project-card and certification improvements, lime accents, accessibility, language navigation and résumé printing live in [`app/src/enhancements.css`](app/src/enhancements.css).
-- `/` and `/es/` are the portfolio pages. `/resume/` and `/es/resume/` use the same data with a print layout. Use **Print / save as PDF** in the browser to export a current résumé.
+- `/` and `/es/` are the portfolio pages. Their CV buttons open the approved one-page English PDF at `/resume.pdf`, sourced from `app/public/resume.pdf`. Replace that file with the final Overleaf export when updating the CV.
+- `/resume/` and `/es/resume/` provide an online résumé using the same site data, with links to download the approved PDF or print the HTML version.
 - Projects are curated public repositories. Add real examples and verified descriptions, without private client information or invented outcomes.
 - Navigation supports keyboard focus and a mobile menu. Reduced-motion preferences stop the rotating text, gradient and starfield animations.
 - Canonical URLs, language alternatives, structured data, robots.txt, a sitemap and a recovery page are generated at build time.

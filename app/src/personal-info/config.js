@@ -31,7 +31,9 @@ export const copy = {
     ],
     hero: 'I work with technical teams to put cloud solutions into practice. Based in Madrid, working with customers across EMEA, with a focus on DACH.',
     viewProjects: 'Explore my work',
-    resume: 'View résumé',
+    resume: 'View CV (PDF)',
+    resumeWeb: 'Read résumé online',
+    downloadResume: 'Download CV (PDF)',
     home: 'Back to portfolio',
     print: 'Print / save as PDF',
     location: 'Madrid, Spain',
@@ -39,8 +41,9 @@ export const copy = {
     focus: 'Vault & Terraform',
     aboutTitle: 'A view of the whole system.',
     about: [
-      "I'm a computer engineer with a degree from the University of Granada, currently working as a Customer Success Engineer at HashiCorp. I work with customers across EMEA, with a focus on DACH, to drive adoption of our solutions and apply best practices in their projects, primarily with Vault and Terraform.",
-      "Previously, I worked in IBM Public Cloud, designing architectures and automating deployments. I've always been interested in how the different layers of a solution fit together, from networking and infrastructure to development, so I can approach problems with a clear understanding of the whole system.",
+      'I work as a Customer Success Engineer at HashiCorp, helping customers adopt our solutions and apply best practices in their projects, primarily with Vault and Terraform.',
+      'Before that, I worked in IBM Public Cloud, designing architectures and automating deployments.',
+      "I've always been interested in understanding how the different layers fit together, from networking and infrastructure to development, so I can approach problems with a clear view of the whole solution.",
     ],
     experienceTitle: 'From cloud architecture to customer success.',
     present: 'Present',
@@ -82,7 +85,9 @@ export const copy = {
     ],
     hero: 'Trabajo con equipos técnicos para llevar las soluciones cloud a la práctica. Desde Madrid, con clientes de EMEA y foco en DACH.',
     viewProjects: 'Ver mis proyectos',
-    resume: 'Ver currículum',
+    resume: 'Ver CV (PDF, inglés)',
+    resumeWeb: 'Ver currículum online',
+    downloadResume: 'Descargar CV (PDF, inglés)',
     home: 'Volver al portfolio',
     print: 'Imprimir / guardar como PDF',
     location: 'Madrid, España',
@@ -90,8 +95,9 @@ export const copy = {
     focus: 'Vault y Terraform',
     aboutTitle: 'Una visión completa de cada solución.',
     about: [
-      'Ingeniero informático formado en la Universidad de Granada. Actualmente trabajo como Customer Success Engineer en HashiCorp, con clientes de EMEA y foco en DACH, para impulsar la adopción de soluciones y aplicar buenas prácticas en sus proyectos, principalmente con Vault y Terraform.',
-      'Antes trabajé en IBM Public Cloud, diseñando arquitecturas y automatizando despliegues. Siempre me ha interesado entender cómo encajan las distintas capas de una solución, desde las redes y la infraestructura hasta el desarrollo, para resolver problemas con una visión completa.',
+      'Trabajo como Customer Success Engineer en HashiCorp, ayudando a los clientes a adoptar nuestras soluciones y aplicar buenas prácticas en sus proyectos, principalmente con Vault y Terraform.',
+      'Antes trabajé en IBM Public Cloud, diseñando arquitecturas y automatizando despliegues.',
+      'Siempre me ha interesado entender cómo encajan las distintas capas, desde las redes y la infraestructura hasta el desarrollo, para abordar los problemas con una visión completa de la solución.',
     ],
     experienceTitle: 'De la arquitectura cloud al éxito del cliente.',
     present: 'Actualidad',
@@ -123,23 +129,47 @@ export const experience = [
     end: null,
     location: { en: 'Madrid · Hybrid', es: 'Madrid · Híbrido' },
     description: {
-      en: 'I drive adoption of our solutions across EMEA, with a focus on DACH. I work with customers’ technical teams to apply best practices and address challenges in their projects, primarily around Vault and Terraform.',
-      es: 'Impulso la adopción de nuestras soluciones en clientes de EMEA, con foco en DACH. Trabajo con sus equipos técnicos para aplicar buenas prácticas y resolver los retos de sus proyectos, principalmente en torno a Vault y Terraform.',
+      en: 'Drive adoption of HashiCorp solutions across EMEA, with a focus on DACH.',
+      es: 'Impulso la adopción de soluciones de HashiCorp en EMEA, con foco en DACH.',
+    },
+    highlights: {
+      en: [
+        'Advise on architecture, implementation and operational best practices, primarily around Vault and Terraform.',
+        'Deliver technical demos and practical walkthroughs tailored to customer use cases and operational challenges.',
+        'Led the resolution of a Vault and Azure integration issue blocking production adoption, working with Support and Engineering.',
+      ],
+      es: [
+        'Asesoro sobre arquitectura, implementación y buenas prácticas operativas, principalmente en torno a Vault y Terraform.',
+        'Realizo demos técnicas y sesiones prácticas adaptadas a los casos de uso y retos operativos de los clientes.',
+        'Lideré la resolución de un problema de integración entre Vault y Azure que bloqueaba la adopción en producción, junto con los equipos de Soporte e Ingeniería.',
+      ],
     },
     tags: ['Customer Success', 'Vault', 'Terraform'],
   },
   {
     company: 'IBM',
     role: {
-      en: 'Cloud Architect & Technical Sales Specialist',
+      en: 'Cloud Architect / Technical Specialist',
       es: 'Arquitecto Cloud y Especialista Técnico',
     },
     start: '2023-07',
     end: '2025-09',
     location: { en: 'Public Cloud · Madrid · Hybrid', es: 'Public Cloud · Madrid · Híbrido' },
     description: {
-      en: 'I designed solutions around customers’ needs, defining architectures and preparing diagrams and cost estimates. I also automated deployments with Terraform for PoCs and MVPs.',
-      es: 'Diseñé soluciones adaptadas a las necesidades de los clientes, definiendo arquitecturas y preparando diagramas y estimaciones de costes. También automaticé despliegues con Terraform para PoC y MVP.',
+      en: '',
+      es: '',
+    },
+    highlights: {
+      en: [
+        'Developed RFPs and participated in public contracts, leading VMware datacenter migration projects.',
+        'Led PoC and MVP deployments with Terraform, worked directly with clients, and prepared accounts for production.',
+        'Contributed to internal projects, including websites, and optimized PoC accounts, cutting costs by over 50%.',
+      ],
+      es: [
+        'Elaboré RFP y participé en licitaciones públicas, liderando proyectos de migración de centros de datos VMware.',
+        'Lideré despliegues de PoC y MVP con Terraform, trabajé directamente con clientes y preparé cuentas para producción.',
+        'Participé en proyectos internos, incluidas páginas web, y optimicé cuentas de PoC, reduciendo los costes en más de un 50%.',
+      ],
     },
     tags: ['IBM Cloud', 'Solution Architecture', 'Terraform', 'Technical Sales'],
   },
@@ -189,6 +219,7 @@ export const skillGroups = [
       es: 'Trabajo con equipos técnicos para adoptar soluciones, aplicar buenas prácticas y resolver retos de sus proyectos.',
     },
     tags: ['Cloud Computing', 'Customer Success', 'Technical Sales', 'Solution Architecture'],
+    highlights: ['Customer Success', 'Solution Architecture'],
   },
   {
     title: { en: 'Infrastructure & security', es: 'Infraestructura y seguridad' },
@@ -197,6 +228,7 @@ export const skillGroups = [
       es: 'Arquitectura cloud y automatización, con foco actual en Vault y Terraform.',
     },
     tags: ['HashiCorp Vault', 'Terraform', 'Infrastructure as Code', 'IBM Cloud', 'Networking'],
+    highlights: ['HashiCorp Vault', 'Terraform'],
   },
   {
     title: { en: 'Development & delivery', es: 'Desarrollo y despliegue' },
@@ -205,6 +237,7 @@ export const skillGroups = [
       es: 'Código, contenedores y herramientas de despliegue para construir y probar soluciones.',
     },
     tags: ['Python', 'JavaScript', 'Git', 'Docker', 'Kubernetes', 'Jenkins'],
+    highlights: ['Python', 'JavaScript'],
   },
 ];
 
@@ -275,8 +308,11 @@ export const education = [
   },
 ];
 export const certifications = [
+  { title: 'HashiCorp Certified: Vault Associate' },
   { title: 'IBM Certified Advanced Architect - Cloud v2', date: '2024-07' },
   { title: 'IBM Power Virtual Server Technical Sales Advanced', date: '2025-03' },
+  { title: 'IBM Certified Professional Architect - Cloud v5' },
+  { title: 'Google Cloud - Associate Cloud Engineer' },
 ];
 export function formatMonth(value, lang) {
   return new Intl.DateTimeFormat(lang === 'es' ? 'es-ES' : 'en-GB', {

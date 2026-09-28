@@ -22,6 +22,7 @@ import awsIcon from './icons/aws.svg';
 import gcpIcon from './icons/gcp.svg';
 
 const base = import.meta.env.BASE_URL;
+const resumePdf = `${base}resume.pdf`;
 const sectionIds = ['aboutme', 'experience', 'skills', 'projects'];
 export function pagePath(lang, resume = false) {
   return `${base}${lang === 'es' ? 'es/' : ''}${resume ? 'resume/' : ''}`;
@@ -41,10 +42,11 @@ function ExternalLink({ href, children, className = '' }) {
   );
 }
 function Tags({ items, highlight }) {
+  const highlighted = Array.isArray(highlight) ? highlight : [highlight];
   return (
     <ul className="skill-tags">
       {items.map((item) => (
-        <li key={item} className={item === highlight ? 'tag-highlight' : undefined}>
+        <li key={item} className={highlighted.includes(item) ? 'tag-highlight' : undefined}>
           {item}
         </li>
       ))}
@@ -99,7 +101,12 @@ function Navigation({ lang, resume }) {
               </a>
             ) : (
               <>
-                <a className="nav-link lead" href={pagePath(lang, true)}>
+                <a
+                  className="nav-link lead"
+                  href={resumePdf}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
                   {t.resume}
                 </a>
                 {sectionIds.map((id, i) => (
@@ -244,8 +251,16 @@ function About({ lang }) {
               </p>
             ))}
             <p className="lead mt-4 mb-0">
-              <a className="btn btn-outline-dark btn-lg" href={pagePath(lang, true)}>
+              <a
+                className="btn btn-outline-dark btn-lg"
+                href={resumePdf}
+                target="_blank"
+                rel="noopener noreferrer"
+              >
                 {t.resume}
+              </a>
+              <a className="ml-3" href={pagePath(lang, true)}>
+                {t.resumeWeb}
               </a>
             </p>
           </div>
@@ -270,7 +285,14 @@ function Experience({ lang, resume = false }) {
           <div>
             <h3>{job.role[lang]}</h3>
             <p className="text-muted">{job.location[lang]}</p>
-            <p>{job.description[lang]}</p>
+            {job.description[lang] && <p>{job.description[lang]}</p>}
+            {job.highlights && (
+              <ul>
+                {job.highlights[lang].map((highlight) => (
+                  <li key={highlight}>{highlight}</li>
+                ))}
+              </ul>
+            )}
             {job.tags.length > 0 && <Tags items={job.tags} />}
           </div>
         </article>
@@ -348,7 +370,10 @@ function Skills({ lang }) {
                 ))}
               </div>
               <p>{skillGroups[group.skills].text[lang]}</p>
-              <Tags items={skillGroups[group.skills].tags} />
+              <Tags
+                items={skillGroups[group.skills].tags}
+                highlight={skillGroups[group.skills].highlights}
+              />
             </div>
           ))}
         </div>
@@ -423,9 +448,11 @@ function Qualifications({ lang, resume = false }) {
           <h2 className={resume ? '' : 'h3 qualification-heading'}>{t.certifications}</h2>
           {certifications.map((item) => (
             <article className="qualification-entry" key={item.title}>
-              <p className="small text-muted mb-2">
-                {t.issued} {formatMonth(item.date, lang)}
-              </p>
+              {item.date && (
+                <p className="small text-muted mb-2">
+                  {t.issued} {formatMonth(item.date, lang)}
+                </p>
+              )}
               <h3 className="h5 mb-0">{item.title}</h3>
             </article>
           ))}
@@ -450,6 +477,9 @@ function Resume({ lang }) {
     <div className="container resume-page">
       <div className="resume-tools">
         <a href={pagePath(lang)}>{t.home}</a>
+        <a className="btn btn-outline-dark" href={resumePdf} download="Nikita-Stetskiy-CV.pdf">
+          {t.downloadResume}
+        </a>
         <button className="btn btn-outline-dark" onClick={() => window.print()}>
           {t.print}
         </button>

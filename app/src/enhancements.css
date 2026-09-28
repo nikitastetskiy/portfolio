@@ -56,15 +56,27 @@ html {
   margin-bottom: 3rem;
 }
 .contact-links {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 1rem 1.5rem;
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 1rem;
+  align-items: center;
+  text-align: center;
+  width: 100%;
+  max-width: 26rem;
+  justify-self: end;
 }
 .contact-links a {
   color: #343a40;
 }
+.contact-links a:not(.contact-email) {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  min-height: 44px;
+}
 .contact-email {
-  flex-basis: 100%;
+  grid-column: 1 / -1;
   font-size: 1.15rem;
   overflow-wrap: anywhere;
   text-decoration: underline;
@@ -195,6 +207,9 @@ button:focus-visible {
   .about-layout .pic {
     max-width: 240px;
   }
+  .contact-links {
+    justify-self: center;
+  }
   .skill-group + .skill-group {
     margin-top: 2.5rem;
   }
@@ -300,11 +315,6 @@ button:focus-visible {
 .language-link {
   color: #666 !important;
   border-bottom: 0;
-}
-#skills .skill-tags li {
-  background: #edf6e1;
-  border-color: #cfdfb9;
-  color: #354128;
 }
 .skill-tags .tag-highlight {
   background: var(--portfolio-lime);
@@ -460,5 +470,18 @@ button:focus-visible {
   mix-blend-mode: normal;
 }
 .navbar-transparent {
-  background-color: rgba(255, 255, 255, 0.9);
+  background-color: transparent;
+}
+.navbar-transparent,
+.navbar-white {
+  transition: background-color 0.4s ease;
+}
+.navbar-transparent .brand,
+.navbar-transparent .navbar-nav .nav-link,
+.navbar-transparent .language-link {
+  color: #fff !important;
+  mix-blend-mode: normal;
+}
+.navbar-transparent .navbar-toggler-icon {
+  filter: brightness(0) invert(1);
 }

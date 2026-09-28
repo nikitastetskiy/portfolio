@@ -19,7 +19,8 @@ for (const route of routes) {
     assert.ok(!html.includes('<!--app-html-->'));
     assert.ok(!html.includes('<!--page-meta-->'));
     assert.ok(!html.includes('developing my career as a Cloud Architect at IBM'));
-    assert.ok(!html.includes('resume.pdf'));
+    assert.ok(html.includes(`href="${base}resume.pdf"`));
+    assert.match(html, /HashiCorp Certified: Vault Associate/);
     assert.ok(!html.includes('api.github.com'));
     const ids = [...html.matchAll(/\sid="([^"]+)"/g)].map((match) => match[1]);
     assert.equal(ids.length, new Set(ids).size, 'duplicate HTML IDs');
@@ -63,7 +64,11 @@ test('translations have complete, matching coverage', () => {
   assert.deepEqual(Object.keys(copy.en).sort(), Object.keys(copy.es).sort());
   for (const lang of ['en', 'es']) {
     for (const item of projects) assert.ok(item.title[lang] && item.text[lang]);
-    for (const job of experience) assert.ok(job.role[lang] && job.description[lang]);
+    for (const job of experience) {
+      assert.ok(job.role[lang]);
+      assert.ok(job.description[lang] || job.highlights?.[lang]?.length);
+      if (job.highlights) assert.equal(job.highlights.en.length, job.highlights.es.length);
+    }
   }
 });
 test('experience has one current role and preserves the actual transition dates', () => {
