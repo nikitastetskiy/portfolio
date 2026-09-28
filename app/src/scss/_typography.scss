@@ -10,6 +10,7 @@ $type-scales: (
 
 $heading-type-scale-base: minor-third;
 $display-type-scale-base: minor-third;
+$font-size-display-base: null;
 
 @function check-type-scale-value($scale) {
   @if map-has-key($type-scales, $scale) {

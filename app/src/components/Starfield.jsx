@@ -1,7 +1,6 @@
 import { useEffect, useRef } from 'react';
 import Particle from '../starfield/particle.js';
 
-// Original particle model, using browser APIs instead of legacy React lifecycle packages.
 export default function Starfield() {
   const canvasRef = useRef(null);
   useEffect(() => {
@@ -11,66 +10,100 @@ export default function Starfield() {
     const media = window.matchMedia('(prefers-reduced-motion: reduce)');
     let frame;
     let particles = [];
-    let bounds;
-    let lastTime = 0;
-    const reset = () => {
-      canvas.width = canvas.parentElement.clientWidth;
-      canvas.height = canvas.parentElement.clientHeight;
-      const x = canvas.width / 2,
-        y = canvas.height / 2;
-      bounds = {
-        depth: 1000,
-        width: canvas.width,
-        height: canvas.height,
-        x: { min: -x, max: x },
-        y: { min: -y, max: y },
-        z: { min: -1000, max: 1000 },
-      };
-      particles = Array.from({ length: 350 }, () => new Particle(bounds));
-    };
-    const draw = (timestamp) => {
-      if (document.hidden || media.matches) return;
-      // Cap animation updates to 60fps on high-refresh displays.
-      if (timestamp - lastTime >= 16) {
-        lastTime = timestamp;
-        const x = canvas.width / 2,
-          y = canvas.height / 2;
-        context.clearRect(0, 0, canvas.width, canvas.height);
-        context.save();
-        context.translate(x, y);
-        for (const particle of particles) {
-          particle.s = bounds.depth / (bounds.depth + particle.z);
-          particle.sx = particle.x * particle.s;
-          particle.sy = particle.y * particle.s;
-          particle.alpha = (bounds.z.max - particle.z) / (bounds.z.max / 2);
+    let bounds = { width: 0, height: 0, depth: 800, near: 120, far: 1800 };
+    let pixelRatio = 0;
+    let lastTime = null;
+    let inView = true;
+
+    const render = (seconds = 0) => {
+      context.clearRect(0, 0, bounds.width, bounds.height);
+      context.save();
+      context.translate(bounds.width / 2, bounds.height / 2);
+      context.lineCap = 'round';
+      for (const particle of particles) {
+        if (seconds) particle.update(seconds);
+        const { sx, sy, radius, alpha, color } = particle;
+        const dx = sx - particle.osx;
+        const dy = sy - particle.osy;
+        const distance = Math.hypot(dx, dy);
+        if (distance > 0.4) {
+          const length = Math.min(1, 4 / distance);
           context.beginPath();
-          context.moveTo(particle.sx, particle.sy);
-          context.lineTo(particle.osx, particle.osy);
-          context.strokeStyle = `hsla(${particle.hue},100%,${particle.lightness}%,${particle.alpha})`;
+          context.moveTo(sx - dx * length, sy - dy * length);
+          context.lineTo(sx, sy);
+          context.lineWidth = radius * 0.7;
+          context.strokeStyle = `rgba(${color},${alpha * 0.32})`;
           context.stroke();
-          particle.update();
         }
-        context.restore();
+        if (radius > 0.85) {
+          context.beginPath();
+          context.arc(sx, sy, radius * 2.75, 0, Math.PI * 2);
+          context.fillStyle = `rgba(${color},${alpha * 0.06})`;
+          context.fill();
+        }
+        context.beginPath();
+        context.arc(sx, sy, radius, 0, Math.PI * 2);
+        context.fillStyle = `rgba(${color},${alpha})`;
+        context.fill();
       }
+      context.restore();
+    };
+
+    const resize = () => {
+      const width = canvas.parentElement.clientWidth;
+      const height = canvas.parentElement.clientHeight;
+      const ratio = Math.min(window.devicePixelRatio || 1, 2);
+      if (width === bounds.width && height === bounds.height && ratio === pixelRatio) return;
+      canvas.width = Math.round(width * ratio);
+      canvas.height = Math.round(height * ratio);
+      context.setTransform(ratio, 0, 0, ratio, 0, 0);
+      pixelRatio = ratio;
+      if (width !== bounds.width || height !== bounds.height) {
+        bounds = { ...bounds, width, height };
+        const count = Math.max(40, Math.min(220, Math.round(width * height / 8500)));
+        particles = Array.from({ length: count }, () => new Particle(bounds));
+      }
+    };
+
+    const draw = (timestamp) => {
+      if (document.hidden || !inView || media.matches) return;
+      resize();
+      // Time-based motion stays smooth on high-refresh screens and after slow frames.
+      const seconds = lastTime === null ? 0 : Math.min((timestamp - lastTime) / 1000, 0.05);
+      lastTime = timestamp;
+      render(seconds);
       frame = requestAnimationFrame(draw);
     };
-    const start = () => {
+
+    const restart = () => {
       cancelAnimationFrame(frame);
-      if (!document.hidden && !media.matches) frame = requestAnimationFrame(draw);
-      else context.clearRect(0, 0, canvas.width, canvas.height);
+      lastTime = null;
+      resize();
+      if (document.hidden || !inView) return;
+      render();
+      // Reduced motion keeps a still sky instead of running the animation.
+      if (!media.matches) frame = requestAnimationFrame(draw);
     };
-    reset();
-    start();
-    const observer = new ResizeObserver(reset);
+
+    restart();
+    const observer = new ResizeObserver(restart);
     observer.observe(canvas.parentElement);
-    document.addEventListener('visibilitychange', start);
-    media.addEventListener('change', start);
+    const visibility = new IntersectionObserver(([entry]) => {
+      inView = entry.isIntersecting;
+      restart();
+    });
+    visibility.observe(canvas);
+    window.addEventListener('resize', restart);
+    document.addEventListener('visibilitychange', restart);
+    media.addEventListener('change', restart);
     return () => {
       cancelAnimationFrame(frame);
       observer.disconnect();
-      document.removeEventListener('visibilitychange', start);
-      media.removeEventListener('change', start);
+      visibility.disconnect();
+      window.removeEventListener('resize', restart);
+      document.removeEventListener('visibilitychange', restart);
+      media.removeEventListener('change', restart);
     };
   }, []);
-  return <canvas ref={canvasRef} className="text-mix-star starfield" aria-hidden="true" />;
+  return <canvas ref={canvasRef} className="starfield" aria-hidden="true" />;
 }
