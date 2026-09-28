@@ -51,9 +51,9 @@ html {
 .contact-layout {
   display: flex;
   flex-direction: column;
-  align-items: center;
+  align-items: flex-start;
   gap: 1rem;
-  text-align: center;
+  text-align: left;
   margin-bottom: 3rem;
 }
 .contact-copy {
@@ -62,14 +62,14 @@ html {
 .contact-links {
   display: flex;
   flex-wrap: wrap;
-  justify-content: center;
+  justify-content: flex-start;
   gap: 1rem 1.5rem;
   width: 100%;
   padding-top: 0.25rem;
 }
 #contact .container > small {
   display: block;
-  text-align: center;
+  text-align: left;
 }
 .contact-links a {
   color: #343a40;

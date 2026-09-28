@@ -216,8 +216,8 @@ export const skillGroups = [
   {
     title: { en: 'Customer engineering', es: 'Ingeniería con clientes' },
     text: {
-      en: 'Working with technical teams to adopt solutions, apply best practices, and resolve project challenges.',
-      es: 'Trabajo con equipos técnicos para adoptar soluciones, aplicar buenas prácticas y resolver retos de sus proyectos.',
+      en: 'Helping technical teams adopt cloud solutions and apply best practices.',
+      es: 'Ayudo a equipos técnicos a adoptar soluciones cloud y aplicar buenas prácticas.',
     },
     tags: ['Customer Success', 'Solution Architecture', 'Cloud Computing', 'Technical Sales'],
     highlights: ['Customer Success', 'Solution Architecture'],
