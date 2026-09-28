@@ -453,7 +453,13 @@ function Qualifications({ lang, resume = false }) {
                   {t.issued} {formatMonth(item.date, lang)}
                 </p>
               )}
-              <h3 className="h5 mb-0">{item.title}</h3>
+              <h3 className="h5 mb-0">
+                {item.url ? (
+                  <ExternalLink href={item.url} className="text-reset">
+                    {item.title}
+                  </ExternalLink>
+                ) : item.title}
+              </h3>
             </article>
           ))}
         </div>

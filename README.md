@@ -65,17 +65,6 @@ The publish script builds and tests in Docker, clones the existing deployment br
 
 `SITE_BASE` (default `/`) and `SITE_ORIGIN` (default `https://nikitastetskiy.github.io`) are Docker build arguments for deployments at another path or origin.
 
-## Git identity
-
-For this personal repository, use:
-
-```sh
-git config --local user.name "Nikita Stetskiy"
-git config --local user.email "42643697+nikitastetskiy@users.noreply.github.com"
-```
-
-[`.mailmap`](.mailmap) consolidates Nikita's historical personal and IBM email aliases. It preserves other contributors' authorship and avoids rewriting history. The deployment script uses the same personal identity. Work-repository and global Git settings are unaffected.
-
 ## License and acknowledgements
 
 [GPL-3.0](LICENSE). Earlier versions drew on [Hashir Shoaib's Home](https://github.com/hashirshoaeb/home), [Travis Fischer's Starfield Animation](https://github.com/transitive-bullshit/react-starfield-animation), [Nathan Randecker's Particle](https://github.com/nrandecker/particle), [React Typist](https://github.com/jstejada/react-typist), [Typed.js](https://github.com/mattboldt/typed.js), and Bootstrap. The current site retains the original Bootstrap styling and particle model, with the animation lifecycle updated to browser APIs.

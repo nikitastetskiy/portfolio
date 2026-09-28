@@ -308,11 +308,14 @@ export const education = [
   },
 ];
 export const certifications = [
-  { title: 'HashiCorp Certified: Vault Associate' },
-  { title: 'IBM Certified Advanced Architect - Cloud v2', date: '2024-07' },
-  { title: 'IBM Power Virtual Server Technical Sales Advanced', date: '2025-03' },
-  { title: 'IBM Certified Professional Architect - Cloud v5' },
-  { title: 'Google Cloud - Associate Cloud Engineer' },
+  {
+    title: 'HashiCorp Certified: Vault Associate (003)',
+    url: 'https://www.credly.com/badges/1fa58d45-37f5-46e6-a638-724e4c253114/public_url',
+  },
+  { title: 'Vault Practitioner Advanced', url: 'https://www.credly.com/badges/34a40317-a7a2-497d-a35f-5c99afb7bf18/public_url', date: '2026-09' },
+  { title: 'IBM Certified Advanced Architect - Cloud v2', url: 'https://www.credly.com/badges/1f6b250b-b9ad-41cf-a74c-d93717ad1705/public_url', date: '2024-07' },
+  { title: 'IBM Certified Professional Architect - Cloud v5', url: 'https://www.credly.com/badges/225b6ea0-138b-49bb-9039-ec974314c908/public_url' },
+  { title: 'Google Cloud - Associate Cloud Engineer', url: 'https://www.credly.com/badges/3b6a874b-4310-4352-b649-c6c01aeab8c8/public_url' },
 ];
 export function formatMonth(value, lang) {
   return new Intl.DateTimeFormat(lang === 'es' ? 'es-ES' : 'en-GB', {
