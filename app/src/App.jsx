@@ -189,7 +189,7 @@ function Hero({ lang }) {
     <section
       id="home"
       aria-labelledby="hero-name"
-      className="jumbotron jumbotron-fluid title text-light min-vh-100 d-flex align-content-center align-items-center flex-wrap m-0"
+      className="jumbotron jumbotron-fluid title bgstyle text-light min-vh-100 d-flex align-content-center align-items-center flex-wrap m-0"
     >
       <Starfield />
       <div className="container text-center text-mix">
