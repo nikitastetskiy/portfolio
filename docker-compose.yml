@@ -1,14 +1,21 @@
-version: "3.8"
-
 services:
   web:
     build:
       context: .
-      dockerfile: ./compose/Dockerfile
+      dockerfile: compose/Dockerfile
+      target: production
+    ports:
+      - '127.0.0.1:8000:80'
+  dev:
+    profiles: [dev]
+    build:
+      context: .
+      dockerfile: compose/Dockerfile
+      target: development
+    ports:
+      - '127.0.0.1:5173:5173'
     volumes:
       - ./app:/app
-      - /app/node_modules
-    ports:
-      - "8000:3000"
-    environment:
-      - NODE_ENV=development
+      - dependencies:/app/node_modules
+volumes:
+  dependencies:

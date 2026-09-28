@@ -1,152 +1,80 @@
-# Portfolio
+# Nikita Stetskiy's portfolio
 
-> This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+[Live site](https://nikitastetskiy.github.io/) · [Español](https://nikitastetskiy.github.io/es/) · [Résumé](https://nikitastetskiy.github.io/resume/)
 
-## Important
+A bilingual portfolio covering customer success engineering at HashiCorp, cloud architecture, and public technical projects. React provides navigation and the rotating hero text. Vite builds the site, and a build step renders every page to HTML so the content works without JavaScript or GitHub API requests.
 
-This project uses deprecated dependencies that are no longer updated. You need Node 14 to install the project or you can use Docker:
+## Run with Docker
 
-    docker compose build
+Docker and Git are the only host requirements. Node and npm dependencies stay inside containers.
 
-    docker run --publish 8000:3000 portfolio-web
+```sh
+docker compose up --build -d web
+```
 
+Open [localhost:8000](http://localhost:8000). This serves the production build with nginx; build-time tests must pass before the image is created.
 
-## Description
+For live editing:
 
-This portfolio is based on a static website, it has been created with React and Boostrap. There are parts of the code like Animations and Github Projects that are not mine (they will be referenced below).
+```sh
+docker compose --profile dev up --build dev
+```
 
-The structure of the project:
+Open [localhost:5173](http://localhost:5173). Source is mounted into the container; dependencies live in a named Docker volume. After changing package dependencies, refresh that volume with `docker compose --profile dev run --rm dev npm ci`.
 
-- [The Navigation Bar](src/components/Navbar.jsx)
-- [The Main Body](src/components/MainBody.jsx)
-    - [Starfield Animation](src/starfield/index.js)
-- [The About Me Section](src/components/AboutMe.jsx)
-- [The Skills Section](src/components/Skills.jsx)
-- [The Project Section](src/components/Project.jsx)
-- [The Footer](src/components/Footer.jsx)
+Stop the services with `docker compose --profile dev down`.
 
-## Documentation
+## Content and behavior
 
-In order to install the application we will use the following commands. It is necessary to have [node](https://nodejs.org/en/) installed to be able to execute the npm commands.
+- Edit English and Spanish copy, employment dates, skills, education and project links in [`app/src/personal-info/config.js`](app/src/personal-info/config.js).
+- Page components are in [`app/src/App.jsx`](app/src/App.jsx); the original styles remain in [`app/src/scss`](app/src/scss) and [`app/src/App.css`](app/src/App.css). Selected project-card and certification improvements, lime accents, accessibility, language navigation and résumé printing live in [`app/src/enhancements.css`](app/src/enhancements.css).
+- `/` and `/es/` are the portfolio pages. `/resume/` and `/es/resume/` use the same data with a print layout. Use **Print / save as PDF** in the browser to export a current résumé.
+- Projects are curated public repositories. Add real examples and verified descriptions, without private client information or invented outcomes.
+- Navigation supports keyboard focus and a mobile menu. Reduced-motion preferences stop the rotating text, gradient and starfield animations.
+- Canonical URLs, language alternatives, structured data, robots.txt, a sitemap and a recovery page are generated at build time.
 
-In the project directory, you can run these available scripts:
+There are two runtime dependencies (React and React DOM). Vite, its React plugin, Bootstrap CSS and Sass are build dependencies. The original Bootstrap visual design, gradient, starfield and icon treatment are retained. The npm lockfile is committed.
 
-    npm install
+## Build and test
 
-> To install the project dependencies.
+```sh
+docker build -f compose/Dockerfile --target export --output type=local,dest=build .
+```
 
-    npm start
+The build runs eight checks covering rendered content in both languages, résumé routes, asset and anchor links, metadata, project links, translation completeness and career dates. Output is written to `build/` without installing anything on the host. CI repeats these checks at the site root and under `/portfolio/`.
 
-<blockquote>
-    <p>
-    Runs the app in the development mode.
-    Open <a href="http://localhost:3000">http://localhost:3000</a> to view it in the browser.
-    </p>
-    <p>
-    The page will reload if you make edits.
-    You will also see any lint errors in the console.
-    </p>
-</blockquote>
+To update the lockfile, use Docker:
 
-    npm run lint
+```sh
+docker run --rm -v "$PWD/app:/app" -w /app node:24-alpine npm install --package-lock-only --ignore-scripts
+```
 
-> To run _Eslint_ and _Prettier_ on the project.
+## Publish
 
-    npm test
+The source repository is `nikitastetskiy/portfolio`, branch `main`. The public site is served from `nikitastetskiy/nikitastetskiy.github.io`, branch `master`.
 
-<blockquote>
-    <p>
-    Launches the test runner in the interactive watch mode.
-    See the section about <a href="https://facebook.github.io/create-react-app/docs/running-tests">running tests</a> for more information.
-    </p>
-</blockquote>
+After reviewing and committing changes:
 
-    npm run build
+```sh
+git push origin main
+./scripts/publish.sh
+```
 
-<blockquote>
-    <p>Builds the app for production to the <code>build</code> folder.
-    It correctly bundles React in production mode and optimizes the build for the best performance.</p>
-    <p>The build is minified and the filenames include the hashes.
-    Your app is ready to be deployed!</p>
-    <p>See the section about <a href="https://facebook.github.io/create-react-app/docs/deployment">deployment</a> for more information.</p>
-</blockquote>
+The publish script builds and tests in Docker, clones the existing deployment branch, replaces generated files, records the source commit in `version.json`, and makes a normal Git push. It preserves custom-domain configuration and never force-pushes. GitHub Pages can take a few minutes to serve the new build.
 
-    npm run eject
+`SITE_BASE` (default `/`) and `SITE_ORIGIN` (default `https://nikitastetskiy.github.io`) are Docker build arguments for deployments at another path or origin.
 
-<blockquote>
-    <p><strong>Note: this is a one-way operation. Once you <code>eject</code>, you can’t go back!</strong></p>
-    <p>If you aren’t satisfied with the build tool and configuration choices, you can <code>eject</code> at any time. This command will remove the single build dependency from your project.</p>
-    <p>Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except <code>eject</code> will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.</p>
-    <p>You don’t have to ever use <code>eject</code>. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.</p>
-</blockquote>
+## Git identity
 
-<p>
-    <details><summary><b>Learn More</b></summary>
-        <dl>
-            <dd> <blockquote>
-            <p>You can learn more in the <a href="https://facebook.github.io/create-react-app/docs/getting-started">Create React App documentation</a>.</p>
-            <p>To learn React, check out the <a href="https://reactjs.org/">React documentation</a>.</p>
-            <h3 id="code-splitting">Code Splitting</h3>
-            <p>This section has moved here: <a href="https://facebook.github.io/create-react-app/docs/code-splitting">https://facebook.github.io/create-react-app/docs/code-splitting</a></p>
-            <h3 id="analyzing-the-bundle-size">Analyzing the Bundle Size</h3>
-            <p>This section has moved here: <a href="https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size">https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size</a></p>
-            <h3 id="making-a-progressive-web-app">Making a Progressive Web App</h3>
-            <p>This section has moved here: <a href="https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app">https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app</a></p>
-            <h3 id="advanced-configuration">Advanced Configuration</h3>
-            <p>This section has moved here: <a href="https://facebook.github.io/create-react-app/docs/advanced-configuration">https://facebook.github.io/create-react-app/docs/advanced-configuration</a></p>
-            <h3 id="deployment">Deployment</h3>
-            <p>This section has moved here: <a href="https://facebook.github.io/create-react-app/docs/deployment">https://facebook.github.io/create-react-app/docs/deployment</a></p>
-            <h3 id="-npm-run-build-fails-to-minify"><code>npm run build</code> fails to minify</h3>
-            <p>This section has moved here: <a href="https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify">https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify</a></p>
-            </blockquote> </dd>
-        </dl>
-    </details>
-</p>
+For this personal repository, use:
 
-## Setup and Deployment
+```sh
+git config --local user.name "Nikita Stetskiy"
+git config --local user.email "42643697+nikitastetskiy@users.noreply.github.com"
+```
 
-1. Fork, download or clone the project.
-2. You have to edit and change your [personal information](src/personal-info), upload your own resume. Then change the links and icons (optional) of the [Main Body](src/components/MainBody.jsx). Later the icons (optional) of the [Skills Section](src/components/Skills.jsx). Finally the links of the [Footer](src/components/Footer.jsx). You also have to edit the meta tags and the title of [index.html](public/index.html) (also the [social-image](public/social-image.png)) and the URL in [package.json](./package.json) file.
-3. Create a new empty repository and named it `<your-username>.github.io`.
-4. Then you need to go to [pages.js](/pages.js) and change the URL of the repository to your own repository:
+[`.mailmap`](.mailmap) consolidates Nikita's historical personal and IBM email aliases. It preserves other contributors' authorship and avoids rewriting history. The deployment script uses the same personal identity. Work-repository and global Git settings are unaffected.
 
-<dl>
-    <dd> <blockquote>
-    <p>github.com/&lt;your-username>/&lt;your-username>.github.io.git</p>
-    </blockquote> </dd>
-</dl>
+## License and acknowledgements
 
-5. To deploy website:
-
-<dl>
-    <dd> <blockquote>
-    <p>
-    npm run build
-    </p>
-    <p>
-    npm run custom-deploy
-    </p>
-    </blockquote> </dd>
-</dl>
-
-5. Your site should be running on:
-
-<dl>
-    <dd> <blockquote>
-    <p>https://&lt;your-username&gt;.github.io</p>
-    </blockquote> </dd>
-</dl>
-
-## References
-
-Large amount of help was from the following repositories: 
-
-- [Home](https://github.com/hashirshoaeb/home) of [Hashir Shoaib](https://github.com/hashirshoaeb).
-- [Starfield Animation](https://github.com/transitive-bullshit/react-starfield-animation) of [Travis Fischer](https://github.com/transitive-bullshit).
-- [Particle](https://github.com/nrandecker/particle) of [Nathan Randecker](https://github.com/nrandecker).
-- [Typist](https://github.com/jstejada/react-typist) of [Juan](https://github.com/jstejada).
-- [Typed](https://github.com/mattboldt/typed.js) of [Matt Boldt](https://github.com/mattboldt).
-
-Also with the help of:
-- [React](https://reactjs.org/).
-- [Bootstrap](https://getbootstrap.com/).
+[GPL-3.0](LICENSE). Earlier versions drew on [Hashir Shoaib's Home](https://github.com/hashirshoaeb/home), [Travis Fischer's Starfield Animation](https://github.com/transitive-bullshit/react-starfield-animation), [Nathan Randecker's Particle](https://github.com/nrandecker/particle), [React Typist](https://github.com/jstejada/react-typist), [Typed.js](https://github.com/mattboldt/typed.js), and Bootstrap. The current site retains the original Bootstrap styling and particle model, with the animation lifecycle updated to browser APIs.

@@ -1,0 +1,7 @@
+.git
+**/node_modules
+**/dist
+**/.ssr
+build
+.DS_Store
+**/.DS_Store

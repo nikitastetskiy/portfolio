@@ -1,0 +1,22 @@
+name: Build and verify portfolio
+on:
+  push:
+    branches: [main]
+  pull_request:
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  verify:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Build, prerender and test in Docker
+        run: docker build -f compose/Dockerfile --target export --output type=local,dest=build .
+      - name: Check deployment under a subpath
+        run: docker build -f compose/Dockerfile --target export --build-arg SITE_BASE=/portfolio/ --output type=local,dest=build-subpath .
+      - uses: actions/upload-artifact@v4
+        with:
+          name: portfolio-site
+          path: build/
+          include-hidden-files: true

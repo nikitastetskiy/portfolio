@@ -1,0 +1,464 @@
+/* Original SCSS is unchanged. Selected project, qualification and usability additions. */
+html {
+  scroll-padding-top: 80px;
+}
+#home {
+  position: relative;
+  overflow: hidden;
+  padding-top: 90px;
+}
+.starfield {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+}
+#home .container {
+  position: relative;
+}
+.about-layout .pic {
+  width: 100%;
+  max-width: 320px;
+  height: auto;
+}
+.about-layout {
+  display: grid;
+  grid-template-columns: 1fr 2fr;
+  gap: 3.5rem;
+  align-items: center;
+}
+.about-portrait {
+  text-align: center;
+}
+.hero-tagline {
+  min-height: 3.5em;
+  padding: 0.25rem;
+}
+.hero-about {
+  padding: 0.8rem 1.8rem;
+  min-width: 190px;
+}
+.skill-group {
+  margin-top: 1rem;
+}
+.skill-group .tech {
+  margin-bottom: 1.5rem;
+}
+.skill-group .icons {
+  display: inline-block;
+}
+.contact-layout {
+  display: grid;
+  grid-template-columns: 3fr 2fr;
+  gap: 3rem;
+  align-items: center;
+  margin-bottom: 3rem;
+}
+.contact-links {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem 1.5rem;
+}
+.contact-links a {
+  color: #343a40;
+}
+.contact-email {
+  flex-basis: 100%;
+  font-size: 1.15rem;
+  overflow-wrap: anywhere;
+  text-decoration: underline;
+  text-underline-offset: 0.3em;
+}
+.language-link {
+  white-space: nowrap;
+}
+.navbar:has(.navbar-collapse.show) {
+  background-color: #fff;
+}
+.navbar-toggler {
+  min-width: 44px;
+  min-height: 44px;
+}
+.skip-link {
+  position: fixed;
+  top: -100px;
+  left: 15px;
+  z-index: 1100;
+  padding: 12px 18px;
+  background: #fff;
+  color: #222;
+}
+.skip-link:focus {
+  top: 10px;
+}
+a:focus-visible,
+button:focus-visible {
+  outline: 3px solid #555;
+  outline-offset: 4px;
+}
+#home a:focus-visible {
+  outline-color: #fff;
+}
+.experience-entry {
+  display: grid;
+  grid-template-columns: 1fr 2fr;
+  gap: 2rem;
+  padding: 2rem 0;
+  border-bottom: 1px solid #ddd;
+}
+.experience-entry:last-child {
+  border-bottom: 0;
+}
+.experience-entry h3 {
+  font-size: 1.3rem;
+}
+.experience-meta p {
+  color: #666;
+  font-size: 0.9rem;
+}
+.skill-tags {
+  list-style: none;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.4rem;
+  margin: 1rem 0;
+  padding: 0;
+}
+.skill-tags li {
+  border: 1px solid #ccc;
+  border-radius: 0.25rem;
+  padding: 0.2rem 0.55rem;
+  font-size: 0.8rem;
+}
+.text-center > .skill-tags {
+  justify-content: center;
+}
+.resume-page {
+  padding-top: 100px;
+  padding-bottom: 40px;
+  max-width: 950px;
+}
+.resume-tools {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 20px;
+  margin-bottom: 30px;
+}
+.resume-document {
+  padding: 45px;
+  border: 1px solid #ddd;
+}
+.resume-document h1 {
+  font-size: 2.8rem;
+}
+.resume-links {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.3rem 1.3rem;
+  font-size: 0.85rem;
+}
+.resume-links a {
+  color: inherit;
+  text-decoration: underline;
+}
+.resume-summary {
+  margin-top: 1.5rem;
+}
+.resume-section {
+  margin-top: 2rem;
+}
+.resume-section h2 {
+  font-size: 1.35rem;
+  padding-bottom: 0.5rem;
+  border-bottom: 1px solid #555;
+}
+.resume-section h3 {
+  font-size: 1rem;
+}
+.resume-document .experience-entry {
+  grid-template-columns: 150px 1fr;
+  padding: 1rem 0;
+  gap: 1.3rem;
+  font-size: 0.86rem;
+}
+.resume-document .experience-entry p {
+  margin-bottom: 0.5rem;
+}
+@media (max-width: 767px) {
+  .about-layout,
+  .contact-layout {
+    grid-template-columns: 1fr;
+    gap: 2rem;
+  }
+  .about-layout .pic {
+    max-width: 240px;
+  }
+  .skill-group + .skill-group {
+    margin-top: 2.5rem;
+  }
+  .experience-entry {
+    grid-template-columns: 1fr;
+    gap: 0.5rem;
+  }
+  .resume-document {
+    padding: 22px;
+  }
+  .resume-document .experience-entry {
+    grid-template-columns: 1fr;
+    gap: 0.3rem;
+  }
+  .resume-tools {
+    align-items: start;
+  }
+  .resume-tools .btn {
+    font-size: 0.8rem;
+  }
+}
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+  .bgstyle,
+  .text-mix-star {
+    animation: none !important;
+  }
+  .card {
+    transition: none !important;
+  }
+}
+@media print {
+  @page {
+    size: A4;
+    margin: 14mm;
+  }
+  html,
+  body {
+    background: #fff;
+    color: #000;
+    font-size: 10pt;
+  }
+  body > #root > header,
+  footer,
+  .skip-link,
+  .resume-tools {
+    display: none !important;
+  }
+  .resume-page {
+    width: 100%;
+    max-width: none;
+    padding: 0;
+  }
+  .resume-document {
+    padding: 0;
+    margin: 0;
+    border: 0;
+  }
+  .resume-document h1 {
+    font-size: 28pt;
+  }
+  .resume-document .experience-entry {
+    grid-template-columns: 115px 1fr;
+    gap: 14px;
+    padding: 10px 0;
+    break-inside: avoid;
+  }
+  .resume-document .skill-tags {
+    display: none;
+  }
+  .resume-section {
+    margin-top: 16px;
+  }
+  .resume-section h2 {
+    font-size: 12pt;
+    break-after: avoid;
+  }
+  .resume-section h3 {
+    font-size: 10pt;
+    break-after: avoid;
+  }
+  .resume-section p {
+    break-inside: avoid;
+  }
+  .resume-section .row {
+    flex-wrap: nowrap;
+  }
+  .resume-section .col-md-6 {
+    width: 50%;
+  }
+  a[href]:after {
+    content: none !important;
+  }
+}
+
+/* The project treatment and restrained lime accents complement the original grayscale layout. */
+:root {
+  --portfolio-lime: #c8ec91;
+  --portfolio-ink: #242a22;
+}
+.language-link {
+  color: #666 !important;
+  border-bottom: 0;
+}
+#skills .skill-tags li {
+  background: #edf6e1;
+  border-color: #cfdfb9;
+  color: #354128;
+}
+.skill-tags .tag-highlight {
+  background: var(--portfolio-lime);
+  color: var(--portfolio-ink);
+  border-color: #a5bf80;
+}
+.project-card {
+  overflow: hidden;
+  border: 1px solid #d9ddd2;
+  box-shadow: 0 5px 18px #00000008;
+}
+.project-card .card-body {
+  padding: 1.8rem;
+}
+.project-card .card-title {
+  line-height: 1.3;
+}
+.project-card .card-text {
+  color: #596052;
+}
+.project-visual {
+  height: 172px;
+  position: relative;
+  display: grid;
+  place-items: center;
+  background-color: #e9ede3;
+  background-image: radial-gradient(#c4cdb8 0.9px, transparent 0.9px);
+  background-size: 14px 14px;
+  border-bottom: 1px solid #d9ddd2;
+}
+.security .project-visual {
+  background-color: #e6eae6;
+}
+.architecture .project-visual {
+  background-color: #eae8e2;
+}
+.project-diagram {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 94%;
+}
+.diagram-node {
+  position: relative;
+  font:
+    0.75rem/1.5 Consolas,
+    monospace;
+  min-width: 72px;
+  padding: 12px 13px;
+  border: 1px solid #95a287;
+  border-radius: 3px;
+  background: #f7f8f4;
+  text-align: center;
+}
+.diagram-node + .diagram-node {
+  margin-left: 30px;
+}
+.diagram-node + .diagram-node:before {
+  position: absolute;
+  content: '';
+  width: 30px;
+  border-top: 1px solid #738664;
+  top: 50%;
+  right: 100%;
+}
+.active-node {
+  background: var(--portfolio-ink);
+  color: var(--portfolio-lime);
+  border-color: var(--portfolio-ink);
+}
+.project-label {
+  position: absolute;
+  left: 17px;
+  bottom: 12px;
+  font:
+    0.6rem Consolas,
+    monospace;
+  color: #59634e;
+}
+.qualifications-section {
+  padding-top: 5rem;
+  padding-bottom: 5rem;
+}
+.qualification-grid {
+  row-gap: 2rem;
+}
+.qualification-panel {
+  height: 100%;
+  padding: 2.25rem;
+  border: 1px solid #e0e3dc;
+  border-radius: 8px;
+}
+.qualification-heading {
+  position: relative;
+  padding-bottom: 1.25rem;
+  margin-bottom: 2rem;
+}
+.qualification-heading:after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  height: 4px;
+  width: 44px;
+  background: var(--portfolio-lime);
+}
+.qualification-entry + .qualification-entry {
+  padding-top: 1.5rem;
+  margin-top: 1.5rem;
+  border-top: 1px solid #e3e5df;
+}
+.qualification-entry h3 {
+  line-height: 1.4;
+}
+@media (max-width: 767px) {
+  .qualification-panel {
+    padding: 1.5rem;
+  }
+  .qualifications-section {
+    padding-top: 3rem;
+    padding-bottom: 3rem;
+  }
+  .project-card .card-body {
+    padding: 1.4rem;
+  }
+  .diagram-node {
+    min-width: 65px;
+    padding: 10px;
+    font-size: 0.7rem;
+  }
+  .diagram-node + .diagram-node {
+    margin-left: 22px;
+  }
+  .diagram-node + .diagram-node:before {
+    width: 22px;
+  }
+}
+@media print {
+  .qualification-entry + .qualification-entry {
+    padding-top: 8px;
+    margin-top: 8px;
+  }
+}
+
+/* Keep the original animated gradient while retaining readable text at every phase. */
+#home:before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.55);
+}
+#home .text-mix {
+  mix-blend-mode: normal;
+}
+.navbar-transparent {
+  background-color: rgba(255, 255, 255, 0.9);
+}
