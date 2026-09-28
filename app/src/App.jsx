@@ -252,7 +252,7 @@ function About({ lang }) {
             ))}
             <p className="about-actions lead mt-4 mb-0">
               <ExternalLink className="btn btn-outline-dark btn-lg" href={resumePdf}>
-                {t.resume}
+                {t.viewResume}
               </ExternalLink>
               <a href={pagePath(lang, true)}>
                 {t.resumeWeb}
