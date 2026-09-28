@@ -251,15 +251,7 @@ function About({ lang }) {
               </p>
             ))}
             <p className="lead mt-4 mb-0">
-              <a
-                className="btn btn-outline-dark btn-lg"
-                href={resumePdf}
-                target="_blank"
-                rel="noopener noreferrer"
-              >
-                {t.resume}
-              </a>
-              <a className="ml-3" href={pagePath(lang, true)}>
+              <a className="btn btn-outline-dark btn-lg" href={pagePath(lang, true)}>
                 {t.resumeWeb}
               </a>
             </p>
@@ -267,6 +259,17 @@ function About({ lang }) {
         </div>
       </div>
     </section>
+  );
+}
+function ExperienceHighlight({ text, reference }) {
+  const index = reference ? text.indexOf(reference.label) : -1;
+  if (index < 0) return text;
+  return (
+    <>
+      {text.slice(0, index)}
+      <ExternalLink href={reference.url}>{reference.label}</ExternalLink>
+      {text.slice(index + reference.label.length)}
+    </>
   );
 }
 function Experience({ lang, resume = false }) {
@@ -289,7 +292,9 @@ function Experience({ lang, resume = false }) {
             {job.highlights && (
               <ul>
                 {job.highlights[lang].map((highlight) => (
-                  <li key={highlight}>{highlight}</li>
+                  <li key={highlight}>
+                    <ExperienceHighlight text={highlight} reference={job.publicReference} />
+                  </li>
                 ))}
               </ul>
             )}
@@ -538,8 +543,8 @@ function Footer({ lang }) {
     <footer id="contact" style={{ backgroundColor: '#EEEEEE' }} className="mt-auto py-5">
       <div className="container">
         <div className="contact-layout">
-          <div>
-            <h2 className="display-4 mb-3">{t.contact}</h2>
+          <h2 className="display-4 mb-0">{t.contact}</h2>
+          <div className="contact-copy">
             <p className="lead mb-3">{t.contactText}</p>
             <p className="text-muted mb-0">{t.contactDetail}</p>
           </div>

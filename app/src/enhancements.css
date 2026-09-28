@@ -49,34 +49,33 @@ html {
   display: inline-block;
 }
 .contact-layout {
-  display: grid;
-  grid-template-columns: 3fr 2fr;
-  gap: 3rem;
+  display: flex;
+  flex-direction: column;
   align-items: center;
+  gap: 1rem;
+  text-align: center;
   margin-bottom: 3rem;
 }
+.contact-copy {
+  max-width: 44rem;
+}
 .contact-links {
-  display: grid;
-  grid-template-columns: repeat(2, minmax(0, 1fr));
-  gap: 1rem;
-  align-items: center;
-  text-align: center;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 1rem 1.5rem;
   width: 100%;
-  max-width: 26rem;
-  justify-self: end;
+  padding-top: 0.25rem;
+}
+#contact .container > small {
+  display: block;
+  text-align: center;
 }
 .contact-links a {
   color: #343a40;
 }
-.contact-links a:not(.contact-email) {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  gap: 0.5rem;
-  min-height: 44px;
-}
 .contact-email {
-  grid-column: 1 / -1;
+  flex-basis: 100%;
   font-size: 1.15rem;
   overflow-wrap: anywhere;
   text-decoration: underline;
@@ -199,16 +198,12 @@ button:focus-visible {
   margin-bottom: 0.5rem;
 }
 @media (max-width: 767px) {
-  .about-layout,
-  .contact-layout {
+  .about-layout {
     grid-template-columns: 1fr;
     gap: 2rem;
   }
   .about-layout .pic {
     max-width: 240px;
-  }
-  .contact-links {
-    justify-self: center;
   }
   .skill-group + .skill-group {
     margin-top: 2.5rem;
